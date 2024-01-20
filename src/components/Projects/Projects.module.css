@@ -3,22 +3,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .projectsSectionFrontEnd {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 10px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .projectsSectionTeam {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .projectImage {
@@ -36,4 +39,18 @@
   font-family: var(--font-family-bold);
   font-size: 20px;
   color: white;
+}
+
+.repoLinkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.repoLink {
+  font-family: var(--font-family-bold);
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
 }
