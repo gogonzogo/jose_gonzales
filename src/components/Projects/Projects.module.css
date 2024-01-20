@@ -1,0 +1,39 @@
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectsSectionFrontEnd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.projectsSectionTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.projectImage:nth-child(1) {
+  margin-right: 10px;
+}
+
+.title {
+  font-family: var(--font-family-bold);
+  font-size: 20px;
+  color: white;
+}
