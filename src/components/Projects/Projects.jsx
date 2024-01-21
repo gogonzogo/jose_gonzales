@@ -8,6 +8,7 @@ import webstudio from '../../images/webstudio.png';
 import icecream from '../../images/icecream.png';
 import filmoteka from '../../images/filmoteka.png';
 import slimmom from '../../images/slimmom.png';
+import slimmomBackend from '../../images/slimmomBackend.png';
 import css from './Projects.module.css';
 
 export default function Projects() {
@@ -33,8 +34,14 @@ export default function Projects() {
         {frontendImageList.map(image => (
           <div key={image.name}>
             <div className={css.repoLinkContainer}>
-              <a href={image.repoLink} target="_blank" rel="noreferrer" className={css.repoLink}>
-                Repo:<br/>
+              <a
+                href={image.repoLink}
+                target="_blank"
+                rel="noreferrer"
+                className={css.repoLink}
+              >
+                Repo:
+                <br />
                 {image.repoLink}
               </a>
             </div>
@@ -91,10 +98,59 @@ export default function Projects() {
                 rel="noreferrer"
                 className={css.repoLink}
               >
-                Repo:<br/>
+                Repo:
+                <br />
                 {image.repoLink}
               </a>
             </div>
+            <a
+              href={image.livePageLink}
+              style={{ textDecoration: 'none' }}
+              rel="noreferrer"
+              target="_blank"
+              onMouseEnter={event => {
+                handlePopoverOpen(event, image.description);
+              }}
+              onMouseLeave={handlePopoverClose}
+              className={css.projectImage}
+            >
+              <img
+                src={image.image}
+                alt={image.name}
+                height="300"
+                width="300"
+              />
+            </a>
+          </div>
+        ))}
+
+        <Popover
+          id="mouse-over-popover"
+          sx={{
+            pointerEvents: 'none',
+          }}
+          open={open}
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          onClose={handlePopoverClose}
+          disableRestoreFocus
+        >
+          <Typography sx={{ p: 1 }}>{currentDescription}</Typography>
+        </Popover>
+      </div>
+      <div className={css.projectsSectionBackend}>
+        <p className={css.title}>Node Backend Projects</p>
+      </div>
+      <div className={css.projectsSectionTeam}>
+        {backendImageList.map(image => (
+          <div key={image.name}>
             <a
               href={image.livePageLink}
               style={{ textDecoration: 'none' }}
@@ -200,5 +256,15 @@ const teamImageList = [
     repoLink: 'https://github.com/gogonzogo/Slimmom',
     description:
       'Full Stack food diary app for tracking calories. -Role: Team Lead. -Team Size: 8 devs. -Stack: React, Node, Express, MongoDB, MUI.',
+  },
+];
+
+const backendImageList = [
+  {
+    name: 'Slimmom API',
+    image: slimmomBackend,
+    livePageLink: 'https://gogonzogo.github.io/Slimmom/',
+    description:
+      'Backend for the Slimmom application. -Role: SCRUM Master. -Team Size: 9 devs. -Stack: MongoDB, Express, Node.',
   },
 ];
