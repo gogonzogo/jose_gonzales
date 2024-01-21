@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/jose_gonzales/static/css/main.6b1a4dc6.css",
-    "main.js": "/jose_gonzales/static/js/main.205fd472.js",
+    "main.js": "/jose_gonzales/static/js/main.9a812e57.js",
     "static/js/787.ea699d19.chunk.js": "/jose_gonzales/static/js/787.ea699d19.chunk.js",
     "static/media/countryLookup.png": "/jose_gonzales/static/media/countryLookup.b836e2b6cdcde8b75f75.png",
     "static/media/filmoteka.png": "/jose_gonzales/static/media/filmoteka.772b526b79090e4d67e6.png",
+    "static/media/slimmomBackend.png": "/jose_gonzales/static/media/slimmomBackend.58ebf426a47d9cdc55e8.png",
     "static/media/icecream.png": "/jose_gonzales/static/media/icecream.2d10cb8288f13fd07be1.png",
     "static/media/slimmom.png": "/jose_gonzales/static/media/slimmom.da94129f7e06a5848992.png",
     "static/media/webstudio.png": "/jose_gonzales/static/media/webstudio.5b255bc415f5e600d873.png",
@@ -12,11 +13,11 @@
     "static/media/phonebook.png": "/jose_gonzales/static/media/phonebook.a908d1d56bc87ec231c8.png",
     "index.html": "/jose_gonzales/index.html",
     "main.6b1a4dc6.css.map": "/jose_gonzales/static/css/main.6b1a4dc6.css.map",
-    "main.205fd472.js.map": "/jose_gonzales/static/js/main.205fd472.js.map",
+    "main.9a812e57.js.map": "/jose_gonzales/static/js/main.9a812e57.js.map",
     "787.ea699d19.chunk.js.map": "/jose_gonzales/static/js/787.ea699d19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6b1a4dc6.css",
-    "static/js/main.205fd472.js"
+    "static/js/main.9a812e57.js"
   ]
 }
