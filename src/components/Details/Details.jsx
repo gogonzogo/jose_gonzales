@@ -19,21 +19,29 @@ const Accordion = styled((props) => (
   },
 }));
 
-const AccordionSummary = styled((props) => (
+const AccordionSummary = styled(props => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
     {...props}
   />
 ))(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "rgb(3, 3, 3)" : "darkgrey",
-  flexDirection: "row-reverse",
-  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(90deg)",
+  backgroundColor: theme.palette.mode === 'dark' ? 'rgb(3, 3, 3)' : 'darkgrey',
+  flexDirection: 'row-reverse',
+  justifyContent: 'center',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
   },
-  "& .MuiAccordionSummary-content": {
-    marginLeft: theme.spacing(1),
+  '& .MuiAccordionSummary-content': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    transition: 'transform 0.3s ease',
   },
 }));
+
+
+
+
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),

@@ -40,9 +40,7 @@ export default function Projects() {
                 rel="noreferrer"
                 className={css.repoLink}
               >
-                Repo:
-                <br />
-                {image.repoLink}
+                Click Me for Repo
               </a>
             </div>
             <a
@@ -98,9 +96,7 @@ export default function Projects() {
                 rel="noreferrer"
                 className={css.repoLink}
               >
-                Repo:
-                <br />
-                {image.repoLink}
+                Click Me for Repo{' '}
               </a>
             </div>
             <a
@@ -152,7 +148,7 @@ export default function Projects() {
         {backendImageList.map(image => (
           <div key={image.name}>
             <a
-              href={image.livePageLink}
+              href={image.repoLink}
               style={{ textDecoration: 'none' }}
               rel="noreferrer"
               target="_blank"
@@ -263,7 +259,7 @@ const backendImageList = [
   {
     name: 'Slimmom API',
     image: slimmomBackend,
-    livePageLink: 'https://gogonzogo.github.io/Slimmom/',
+    repoLink: 'https://github.com/gogonzogo/Slimmom-Backend-API',
     description:
       'Backend for the Slimmom application. -Role: SCRUM Master. -Team Size: 9 devs. -Stack: MongoDB, Express, Node.',
   },
