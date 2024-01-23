@@ -142,7 +142,7 @@ export default function Projects() {
         </Popover>
       </div>
       <div className={css.projectsSectionBackend}>
-        <p className={css.title}>Node Backend Projects</p>
+        <p className={css.title}>Node Backend Team Project I Lead</p>
       </div>
       <div className={css.projectsSectionTeam}>
         {backendImageList.map(image => (
@@ -190,7 +190,7 @@ export default function Projects() {
         </Popover>
       </div>
       <div className={css.projectsSectionBackend}>
-        <p className={css.title}>Node Backend Projects Coming Soon</p>
+        <p className={css.title}>Node Backend Personal Projects Coming Soon</p>
       </div>
     </div>
   );
