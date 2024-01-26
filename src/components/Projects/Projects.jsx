@@ -1,5 +1,3 @@
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import countryLookup from '../../images/countryLookup.png';
 import memory from '../../images/memory.png';
@@ -10,22 +8,15 @@ import filmoteka from '../../images/filmoteka.png';
 import slimmom from '../../images/slimmom.png';
 import slimmomBackend from '../../images/slimmomBackend.png';
 import css from './Projects.module.css';
+import { Tooltip } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 
 export default function Projects() {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [currentDescription, setCurrentDescription] = useState('');
 
-  const handlePopoverOpen = (event, description) => {
-    setAnchorEl(event.currentTarget);
+  const openToolTip = (event, description) => {
     setCurrentDescription(description);
   };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-    setCurrentDescription('');
-  };
-
-  const open = Boolean(anchorEl);
 
   return (
     <div className={css.projectsSection}>
@@ -49,41 +40,21 @@ export default function Projects() {
               rel="noreferrer"
               target="_blank"
               onMouseEnter={event => {
-                handlePopoverOpen(event, image.description);
+                openToolTip(event, image.description);
               }}
-              onMouseLeave={handlePopoverClose}
-              className={css.projectImage}
+              className={css.projectLink}
             >
-              <img
-                src={image.image}
-                alt={image.name}
-                height="300"
-                width="300"
-              />
+              <Tooltip title={currentDescription} arrow placement="bottom">
+                <Avatar
+                  alt={image.description}
+                  src={image.image}
+                  className={css.projectLinkImage}
+                  variant="rounded"
+                />
+              </Tooltip>
             </a>
           </div>
         ))}
-
-        <Popover
-          id="mouse-over-popover"
-          sx={{
-            pointerEvents: 'none',
-          }}
-          open={open}
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          onClose={handlePopoverClose}
-          disableRestoreFocus
-        >
-          <Typography sx={{ p: 1 }}>{currentDescription}</Typography>
-        </Popover>
       </div>
       <p className={css.title}>Team Projects I Lead</p>
       <div className={css.projectsSectionTeam}>
@@ -104,42 +75,22 @@ export default function Projects() {
               style={{ textDecoration: 'none' }}
               rel="noreferrer"
               target="_blank"
+              className={css.projectLink}
               onMouseEnter={event => {
-                handlePopoverOpen(event, image.description);
+                openToolTip(event, image.description);
               }}
-              onMouseLeave={handlePopoverClose}
-              className={css.projectImage}
             >
-              <img
-                src={image.image}
-                alt={image.name}
-                height="300"
-                width="300"
-              />
+              <Tooltip title={currentDescription} arrow placement="bottom">
+                <Avatar
+                  alt={image.description}
+                  src={image.image}
+                  className={css.projectLinkImage}
+                  variant="rounded"
+                />
+              </Tooltip>
             </a>
           </div>
         ))}
-
-        <Popover
-          id="mouse-over-popover"
-          sx={{
-            pointerEvents: 'none',
-          }}
-          open={open}
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          onClose={handlePopoverClose}
-          disableRestoreFocus
-        >
-          <Typography sx={{ p: 1 }}>{currentDescription}</Typography>
-        </Popover>
       </div>
       <div className={css.projectsSectionBackend}>
         <p className={css.title}>Node Backend Team Project I Lead</p>
@@ -152,49 +103,29 @@ export default function Projects() {
               style={{ textDecoration: 'none' }}
               rel="noreferrer"
               target="_blank"
+              className={css.projectLink}
               onMouseEnter={event => {
-                handlePopoverOpen(event, image.description);
+                openToolTip(event, image.description);
               }}
-              onMouseLeave={handlePopoverClose}
-              className={css.projectImage}
             >
-              <img
-                src={image.image}
-                alt={image.name}
-                height="300"
-                width="300"
-              />
+              <Tooltip title={currentDescription} arrow placement="bottom">
+                <Avatar
+                  alt={image.description}
+                  src={image.image}
+                  className={css.projectLinkImage}
+                  variant="rounded"
+                />
+              </Tooltip>
             </a>
           </div>
         ))}
-
-        <Popover
-          id="mouse-over-popover"
-          sx={{
-            pointerEvents: 'none',
-          }}
-          open={open}
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          onClose={handlePopoverClose}
-          disableRestoreFocus
-        >
-          <Typography sx={{ p: 1 }}>{currentDescription}</Typography>
-        </Popover>
       </div>
       <div className={css.projectsSectionBackend}>
         <p className={css.title}>Node Backend Personal Projects Coming Soon</p>
       </div>
     </div>
   );
-}
+};
 
 const frontendImageList = [
   {
@@ -224,7 +155,7 @@ const frontendImageList = [
     livePageLink: 'https://gogonzogo.github.io/Gonzo-Country-Lookup/',
     repoLink: 'https://github.com/gogonzogo/Gonzo-Country-Lookup',
     description:
-      'Unique approach to the standard country lookup with the help of Mapbox.',
+      'Unique approach to the standard country lookup with the help of Mapbox. Note: Not Responsive Yet.',
   },
 ];
 

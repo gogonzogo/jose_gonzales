@@ -6,52 +6,43 @@
   width: 100%;
 }
 
-.projectsSectionFrontEnd {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.projectsSectionTeam {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.projectImage {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.projectImage:nth-child(1) {
-  margin-right: 10px;
-}
-
-.title {
-  font-family: var(--font-family-bold);
-  font-size: 20px;
-  color: white;
+.projectLinkImage {
+  min-width: 290px;
+  min-height: 290px;
 }
 
 .repoLinkContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .repoLink {
-  font-family: var(--font-family-bold);
-  font-size: 15px;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 15px;
+  color: aliceblue;
+}
+
+@media screen and (min-width: 480px) {
+  .projectsSectionFrontEnd,
+  .projectsSectionTeam,
+  .projectsSectionBackend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .repoLinkContainer {
+    width: fit-content;
+  }
+
+  .projectLinkImage {
+    min-width: 300px;
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .projectLinkImage {
+    min-width: 400px;
+    min-height: 400px;
+  }
 }
