@@ -62,7 +62,7 @@ export default function Details() {
     setExpanded(newExpanded ? panel : false);
   };
 
-  const getFontSize = () => {
+const getFontSize = () => {
     if (isSmallScreen) {
       return '16px';
     } else if (isMediumScreen) {

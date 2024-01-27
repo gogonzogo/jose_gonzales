@@ -7,6 +7,8 @@ import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import css from './Modal.module.css';
 import SocialLinks from 'components/SocialLinks/SocialLinks';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme, styled } from '@mui/material/styles';
 
 const style = {
   position: 'absolute',
@@ -20,15 +22,32 @@ const style = {
   p: 4,
 };
 
+const CustomMenuIcon = styled(MenuIcon)(({ theme, fontSize }) => ({
+  fontSize: fontSize || theme.typography.body1.fontSize,
+}));
+
 export default function TransitionsModal() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down(480));
+
+  const getFontSize = () => {
+    if (isSmallScreen) {
+      return '16px';;
+    } else {
+      return '30px';
+    }
+  };
 
   return (
     <div>
       <IconButton onClick={handleOpen}>
-        <MenuIcon className={css.menuIcon} />
+        <CustomMenuIcon
+          className={css.menuIcon}
+          sx={{ fontSize: getFontSize() }}
+        />
       </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -45,7 +64,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <SocialLinks />
+            <SocialLinks color='black'/>
           </Box>
         </Fade>
       </Modal>

@@ -1,6 +1,6 @@
 .header {
   min-width: 290px;
-  margin: 15px 15px 30px 15px;
+  margin: 15px 0 30px 0;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 480px) {
   .header {
-    margin: 30px 30px 30px 30px;
+    margin: 30px 0;
   }
   .name,
   .title {
