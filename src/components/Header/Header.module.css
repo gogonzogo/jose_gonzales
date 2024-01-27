@@ -32,3 +32,22 @@
     font-size: 30px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .name,
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    max-width: 1800px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+  .name,
+  .title {
+    font-size: 50px;
+  }
+}

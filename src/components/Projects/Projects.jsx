@@ -8,8 +8,9 @@ import filmoteka from '../../images/filmoteka.png';
 import slimmom from '../../images/slimmom.png';
 import slimmomBackend from '../../images/slimmomBackend.png';
 import css from './Projects.module.css';
-import { Tooltip } from '@mui/material';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
+import { styled } from '@mui/material/styles';
 
 export default function Projects() {
   const [currentDescription, setCurrentDescription] = useState('');
@@ -18,12 +19,23 @@ export default function Projects() {
     setCurrentDescription(description);
   };
 
+  const StyledToolTip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.common.white,
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: theme.shadows[1],
+      fontSize: 16,
+    },
+  }));
+
   return (
     <div className={css.projectsSection}>
       <p className={css.title}>Front End, REST API, Responsive</p>
-      <div className={css.projectsSectionFrontEnd}>
+      <div className={css.projectsSectionContent}>
         {frontendImageList.map(image => (
-          <div key={image.name}>
+          <div key={image.name} className={css.repoContainer}>
             <div className={css.repoLinkContainer}>
               <a
                 href={image.repoLink}
@@ -44,22 +56,37 @@ export default function Projects() {
               }}
               className={css.projectLink}
             >
-              <Tooltip title={currentDescription} arrow placement="bottom">
+              <StyledToolTip
+                title={currentDescription}
+                followCursor
+                slotProps={{
+                  popper: {
+                    modifiers: [
+                      {
+                        name: 'offset',
+                        options: {
+                          offset: [0, 8],
+                        },
+                      },
+                    ],
+                  },
+                }}
+              >
                 <Avatar
                   alt={image.description}
                   src={image.image}
                   className={css.projectLinkImage}
                   variant="rounded"
                 />
-              </Tooltip>
+              </StyledToolTip>
             </a>
           </div>
         ))}
       </div>
       <p className={css.title}>Team Projects I Lead</p>
-      <div className={css.projectsSectionTeam}>
+      <div className={css.projectsSectionContent}>
         {teamImageList.map(image => (
-          <div key={image.name}>
+          <div key={image.name} className={css.repoContainer}>
             <div className={css.repoLinkContainer}>
               <a
                 href={image.repoLink}
@@ -80,24 +107,39 @@ export default function Projects() {
                 openToolTip(event, image.description);
               }}
             >
-              <Tooltip title={currentDescription} arrow placement="bottom">
+               <StyledToolTip
+                title={currentDescription}
+                followCursor
+                slotProps={{
+                  popper: {
+                    modifiers: [
+                      {
+                        name: 'offset',
+                        options: {
+                          offset: [0, 8],
+                        },
+                      },
+                    ],
+                  },
+                }}
+              >
                 <Avatar
                   alt={image.description}
                   src={image.image}
                   className={css.projectLinkImage}
                   variant="rounded"
                 />
-              </Tooltip>
+              </StyledToolTip>
             </a>
           </div>
         ))}
       </div>
-      <div className={css.projectsSectionBackend}>
+      <div className={css.projectsSectionContent}>
         <p className={css.title}>Node Backend Team Project I Lead</p>
       </div>
-      <div className={css.projectsSectionTeam}>
+      <div className={css.projectsSectionContent}>
         {backendImageList.map(image => (
-          <div key={image.name}>
+          <div key={image.name} className={css.repoContainer}>
             <a
               href={image.repoLink}
               style={{ textDecoration: 'none' }}
@@ -108,24 +150,39 @@ export default function Projects() {
                 openToolTip(event, image.description);
               }}
             >
-              <Tooltip title={currentDescription} arrow placement="bottom">
+               <StyledToolTip
+                title={currentDescription}
+                followCursor
+                slotProps={{
+                  popper: {
+                    modifiers: [
+                      {
+                        name: 'offset',
+                        options: {
+                          offset: [0, 8],
+                        },
+                      },
+                    ],
+                  },
+                }}
+              >
                 <Avatar
                   alt={image.description}
                   src={image.image}
                   className={css.projectLinkImage}
                   variant="rounded"
                 />
-              </Tooltip>
+              </StyledToolTip>
             </a>
           </div>
         ))}
       </div>
-      <div className={css.projectsSectionBackend}>
+      <div className={css.projectsSectionContent}>
         <p className={css.title}>Node Backend Personal Projects Coming Soon</p>
       </div>
     </div>
   );
-};
+}
 
 const frontendImageList = [
   {
@@ -133,21 +190,24 @@ const frontendImageList = [
     image: phonebook,
     livePageLink: 'https://gogonzogo.github.io/Gonzo-Phonebook/',
     repoLink: 'https://github.com/gogonzogo/Gonzo-Phonebook',
-    description: 'A phonebook CRUD app styled with MUI and custom styles.',
+    description:
+      'Contacts managment CRUD app with authorization. -Stack: React, CSS Modules, MUI',
   },
   {
     name: 'Gonzo Web Studio',
     image: webstudio,
     livePageLink: 'https://gogonzogo.github.io/Web-Studio/',
     repoLink: 'https://github.com/gogonzogo/Web-Studio',
-    description: 'A landing page demonstrating responsive design.',
+    description:
+      'Landing page demonstrating responsive design. -Stack: HTML, SCSS, JS.',
   },
   {
     name: 'Gonzo Memory',
     image: memory,
     livePageLink: 'https://gogonzogo.github.io/Gonzo-Memory-Game/',
     repoLink: 'https://github.com/gogonzogo/Gonzo-Memory-Game',
-    description: 'Fun game with a unique UI experience.',
+    description:
+      'Fun game with a unique UX/UI experience. -Stack: HTML, SCSS, JS.',
   },
   {
     name: 'Gonzo Country Lookup',
@@ -155,7 +215,7 @@ const frontendImageList = [
     livePageLink: 'https://gogonzogo.github.io/Gonzo-Country-Lookup/',
     repoLink: 'https://github.com/gogonzogo/Gonzo-Country-Lookup',
     description:
-      'Unique approach to the standard country lookup with the help of Mapbox. Note: Not Responsive Yet.',
+      'Unique approach to the standard country lookup. -Stack: HTML, SCSS, JS. -Note: Not Responsive Yet.',
   },
 ];
 
@@ -166,7 +226,7 @@ const teamImageList = [
     livePageLink: 'https://jiml268.github.io/team-project1/',
     repoLink: 'https://github.com/jiml268/team-project1',
     description:
-      'A landing page project. -Role: SCRUM Master. -Team Size: 9 devs. -Stack: HTML, SCSS, JS.',
+      'Ice cream shop landing page. -Role: SCRUM Master. -Team Size: 9 devs. -Stack: HTML, SCSS, JS.',
   },
   {
     name: 'Filmoteka',
@@ -174,7 +234,7 @@ const teamImageList = [
     livePageLink: 'https://gogonzogo.github.io/Filmoteka/',
     repoLink: 'https://github.com/gogonzogo/Filmoteka',
     description:
-      'A CRUD app of movies and TV shows which users can create their own watchlists. -Role: Team Lead. -Team Size: 5 devs -Stack: HTML, SCSS, JS. ',
+      'A movie library CRUD app to search and create watchlist. -Role: Team Lead. -Team Size: 5 devs -Stack: HTML, SCSS, JS. ',
   },
   {
     name: 'Slimmom',

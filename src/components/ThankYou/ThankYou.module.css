@@ -1,9 +1,49 @@
 .thankYouSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    padding-bottom: 30px;
-    min-width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  min-width: 290px;
+}
+
+@media screen and (min-width: 480px) {
+  .thankYouSection {
+    margin-top: 40px;
+  }
+
+  .thankYouTitle {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .thankYouSection {
+    margin-top: 50px;
+  }
+
+  .thankYouTitle {
+    font-size: 30px;
+  }
+
+  .thankYouSummary {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .thankYouSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+
+  .thankYouTitle {
+    font-size: 40px;
+  }
+
+  .thankYouSummary {
+    font-size: 25px;
+  }
 }
